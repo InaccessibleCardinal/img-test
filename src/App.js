@@ -18,7 +18,10 @@ class App extends Component {
         // console.log('headers: ', response.headers)
         let u = btoa(
           new Uint8Array(response.data)
-            .reduce((data, byte) => data + String.fromCharCode(byte), '')
+            .reduce(function(data, byte) {
+              return data + String.fromCharCode(byte)
+            }, ''
+          )
         );
         
         this.setState(
